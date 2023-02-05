@@ -2,7 +2,7 @@
 import { ServiceAddons } from '@feathersjs/feathers';
 import { Application } from '../../declarations';
 import { Users } from './users.class';
-import createModel from '../../models/users.model';
+import createModel from './users.model';
 import hooks from './users.hooks';
 
 // Add this service to the service type index
