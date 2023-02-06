@@ -47,13 +47,17 @@
     "@feathersjs/express": "^4.5.15",
     "@feathersjs/feathers": "^4.5.15",
     "@feathersjs/transport-commons": "^4.5.15",
+    "@types/lodash": "^4.14.191",
+    "@types/uuid": "^9.0.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "feathers-mongoose": "^8.5.1",
     "helmet": "^5.1.1",
+    "lodash": "^4.17.21",
     "mongodb-core": "^3.2.7",
     "mongoose": "^6.6.2",
     "serve-favicon": "^2.5.0",
+    "uuid": "^9.0.0",
     "winston": "^3.8.2"
   },
   "devDependencies": {
