@@ -1,4 +1,4 @@
-// users-model.ts - A mongoose model
+// transaction-model.ts - A mongoose model
 //
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
@@ -6,13 +6,18 @@ import { Application } from "../../declarations";
 import { Model, Mongoose } from "mongoose";
 
 export default function (app: Application): Model<any> {
-  const modelName = "users";
+  const modelName = "transaction";
   const mongooseClient: Mongoose = app.get("mongooseClient");
-  const schema = new mongooseClient.Schema(
+  const { Schema } = mongooseClient;
+  const schema = new Schema(
     {
-      email: { type: String, unique: true, lowercase: true },
-      password: { type: String },
-      userId: { type: String, unique: true, required: true },
+      transactionId: { type: String, required: true },
+      category: { type: String },
+      userId: { type: String, required: true, index: true },
+      amount: { type: Number, required: true },
+      type: { type: String, required: true },
+      baseAccount: { type: String, required: true },
+      destinationAccount: { type: String },
     },
     {
       timestamps: true,
