@@ -54,7 +54,7 @@ export class Transaction extends Service {
       if (!_.isArray(accFrom))
         throw new GeneralError("Accounts must not be paginated");
       if (!accFrom.length)
-        throw new GeneralError("This account from doesn't exist");
+        throw new GeneralError("This source account doesn't exist");
 
       let accTo: Account[] | Paginated<Account> | any = null;
       if (type === "transfer") {
@@ -64,7 +64,7 @@ export class Transaction extends Service {
         if (!_.isArray(accTo))
           throw new GeneralError("Accounts must not be paginated");
         if (!accTo.length)
-          throw new GeneralError("This account from doesn't exist");
+          throw new GeneralError("This destination account doesn't exist");
       }
 
       // update the balances
@@ -87,7 +87,7 @@ export class Transaction extends Service {
         );
         this.app
           .service("account")
-          .patch(accTo[0]._id, { balance: newFromBalance });
+          .patch(accTo[0]._id, { balance: newToBalance });
       }
 
       const newTransaction = {
