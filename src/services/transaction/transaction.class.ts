@@ -12,6 +12,7 @@ interface Data {
   baseAccount: string;
   destinationAccount?: string;
   category?: string;
+  date: Date;
 }
 
 interface Response {
@@ -37,7 +38,15 @@ export class Transaction extends Service {
 
   async create(data: Data, params?: Params) {
     try {
-      const { userId, amount, type, baseAccount, destinationAccount, category } = data;
+      const {
+        userId,
+        amount,
+        type,
+        baseAccount,
+        destinationAccount,
+        category,
+        date,
+      } = data;
 
       if (!userId) throw new BadRequest("userId must be provided");
       if (!amount) throw new BadRequest("Amount must be provided");
@@ -98,6 +107,7 @@ export class Transaction extends Service {
         baseAccount,
         destinationAccount,
         category,
+        date,
       };
       this.options.Model.create(newTransaction);
       return newTransaction;
