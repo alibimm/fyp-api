@@ -18,6 +18,7 @@ export default function (app: Application): Model<any> {
       type: { type: String, required: true },
       baseAccount: { type: String, required: true },
       destinationAccount: { type: String },
+      date: { type: Date },
     },
     {
       timestamps: true,
