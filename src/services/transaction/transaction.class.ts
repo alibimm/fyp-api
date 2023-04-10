@@ -120,10 +120,11 @@ export class Transaction extends Service {
 
 const calculateNewBalance = (
   prevBalance: number,
-  amount: number,
+  amount: any,
   type: string,
   isFrom: boolean
 ): number => {
   const willAdd = type === "income" || (type === "transfer" && !isFrom);
-  return willAdd ? prevBalance + amount : prevBalance - amount;
+  const change = parseFloat(amount);
+  return willAdd ? (prevBalance + change) : (prevBalance - change);
 };
